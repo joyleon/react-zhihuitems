@@ -1,0 +1,15 @@
+*{padding:0;margin:0;}
+a{outline:none;text-decoration:none;}
+body{font: 14px/1.5 arial}
+#content{width:560px;margin:0 auto;}
+.hd{background: #059ed3;color:#fff;}
+.hd,.ft{padding:5px;}
+.ft{background:#ccc;text-align:right;}
+.row{padding:5px;border-bottom:solid 1px #eee;}
+.row div{display:inline}
+.row a{float:right;}
+.ft a{color:green;font-weight:bold}
+code{display:block;border:solid 1px #666;padding:10px;background:#ffffc0;}
+h3{margin:10px 0;color:#ff9900;}
+input{border:solid 1px #c0c0c0;line-height:1.5em;height:1.5em}
+.hideinput{display: none;}
