@@ -6,6 +6,7 @@ export default class ZhihuItem extends React.Component{
   constructor(){
     super()
     this.editItem = this.editItem.bind(this)
+    this.delateItem = this.delateItem.bind(this)
   }
   //编辑条目
   editItem(e){
@@ -21,9 +22,20 @@ export default class ZhihuItem extends React.Component{
     }
     return false;
   }
+  //删除条目
+  delateItem(){
+    this.props.ondelateItem(this.props.index)
+  }
   render(){
     return (
-      <div className="row" ><div><span ref="edittext">{this.props.children}</span><input type="text" defaultValue={this.props.children} className="hideinput" ref="edit" /></div><a href="javascript:;" ref="editbutton" onClick={this.editItem} >修改</a></div>
+      <div className="row" >
+        <div>
+          <span ref="edittext">{this.props.children}</span>
+          <input type="text" defaultValue={this.props.children} className="hideinput" ref="edit" />
+        </div>
+        <a href="javascript:;" ref="delatebutton" onClick={this.delateItem} >删除</a>
+        <a href="javascript:;" ref="editbutton" onClick={this.editItem} >修改</a>
+      </div>
     )
   }
 }

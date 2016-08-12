@@ -91,6 +91,7 @@
 	    _this.state = { data: [] };
 	    _this.addItem = _this.addItem.bind(_this);
 	    _this.editItem = _this.editItem.bind(_this);
+	    _this.delateItem = _this.delateItem.bind(_this);
 	    return _this;
 	  }
 	  //初始化data
@@ -110,7 +111,7 @@
 	      _arr.push('未命名');
 	      this.setState({ data: _arr });
 	    }
-	    //
+	    //编辑条目
 
 	  }, {
 	    key: 'editItem',
@@ -120,6 +121,15 @@
 	      _arr[index] = item;
 	      this.setState({ data: _arr });
 	    }
+	    //删除条目
+
+	  }, {
+	    key: 'delateItem',
+	    value: function delateItem(index) {
+	      var _arr = this.state.data;
+	      _arr.splice(index, 1);
+	      this.setState({ data: _arr });
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -127,7 +137,7 @@
 	        'div',
 	        { className: 'app' },
 	        _react2.default.createElement(_ZhihuHead2.default, { count: this.state.data.length }),
-	        _react2.default.createElement(_ZhihuList2.default, { items: this.state.data, oneditItem: this.editItem }),
+	        _react2.default.createElement(_ZhihuList2.default, { items: this.state.data, oneditItem: this.editItem, ondelateItem: this.delateItem }),
 	        _react2.default.createElement(_ZhihuFooter2.default, { onaddItem: this.addItem })
 	      );
 	    }
@@ -31785,6 +31795,7 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ZhihuItem).call(this));
 
 	    _this.editItem = _this.editItem.bind(_this);
+	    _this.delateItem = _this.delateItem.bind(_this);
 	    return _this;
 	  }
 	  //编辑条目
@@ -31805,6 +31816,13 @@
 	      }
 	      return false;
 	    }
+	    //删除条目
+
+	  }, {
+	    key: 'delateItem',
+	    value: function delateItem() {
+	      this.props.ondelateItem(this.props.index);
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -31820,6 +31838,11 @@
 	            this.props.children
 	          ),
 	          _react2.default.createElement('input', { type: 'text', defaultValue: this.props.children, className: 'hideinput', ref: 'edit' })
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'javascript:;', ref: 'delatebutton', onClick: this.delateItem },
+	          '删除'
 	        ),
 	        _react2.default.createElement(
 	          'a',
@@ -31935,7 +31958,7 @@
 
 
 	// module
-	exports.push([module.id, "*{padding:0;margin:0;}\na{outline:none;text-decoration:none;}\nbody{font: 14px/1.5 arial}\n#content{width:560px;margin:0 auto;}\n.hd{background: #059ed3;color:#fff;}\n.hd,.ft{padding:5px;}\n.ft{background:#ccc;text-align:right;}\n.row{padding:5px;border-bottom:solid 1px #eee;}\n.row div{display:inline}\n.row a{float:right;}\n.ft a{color:green;font-weight:bold}\ncode{display:block;border:solid 1px #666;padding:10px;background:#ffffc0;}\nh3{margin:10px 0;color:#ff9900;}\ninput{border:solid 1px #c0c0c0;line-height:1.5em;height:1.5em}\n.hideinput{display: none;}\n", ""]);
+	exports.push([module.id, "*{padding:0;margin:0;}\na{outline:none;text-decoration:none;}\nbody{font: 14px/1.5 arial}\n#content{width:560px;margin:0 auto;}\n.hd{background: #059ed3;color:#fff;}\n.hd,.ft{padding:5px;}\n.ft{background:#ccc;text-align:right;}\n.row{padding:5px;border-bottom:solid 1px #eee;}\n.row div{display:inline}\n.row a{float:right;}\n.row a:last-child{margin-right: 5px;}\n.ft a{color:green;font-weight:bold}\ncode{display:block;border:solid 1px #666;padding:10px;background:#ffffc0;}\nh3{margin:10px 0;color:#ff9900;}\ninput{border:solid 1px #c0c0c0;line-height:1.5em;height:1.5em}\n.hideinput{display: none;}\n", ""]);
 
 	// exports
 

@@ -8,6 +8,7 @@ body{font: 14px/1.5 arial}
 .row{padding:5px;border-bottom:solid 1px #eee;}
 .row div{display:inline}
 .row a{float:right;}
+.row a:last-child{margin-right: 5px;}
 .ft a{color:green;font-weight:bold}
 code{display:block;border:solid 1px #666;padding:10px;background:#ffffc0;}
 h3{margin:10px 0;color:#ff9900;}

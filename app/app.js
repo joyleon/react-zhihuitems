@@ -12,6 +12,7 @@ class App extends React.Component{
     this.state = {data:[]}
     this.addItem = this.addItem.bind(this)
     this.editItem = this.editItem.bind(this)
+    this.delateItem = this.delateItem.bind(this)
   }
   //初始化data
   componentDidMount(){
@@ -36,11 +37,17 @@ class App extends React.Component{
     _arr[index] = item
     this.setState({data:_arr})
   }
+  //删除条目
+  delateItem(index){
+    var _arr = this.state.data
+    _arr.splice(index,1)
+    this.setState({data:_arr})
+  }
   render(){
     return (
       <div className="app">
         <ZhihuHead count={this.state.data.length} />
-        <ZhihuList items={this.state.data} oneditItem={this.editItem} />
+        <ZhihuList items={this.state.data} oneditItem={this.editItem} ondelateItem={this.delateItem} />
         <ZhihuFooter onaddItem={this.addItem} />
       </div>
     )
