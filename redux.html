@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello React</title>
+    <script src="http://fb.me/react-0.14.7.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.14.7.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/jsx">
+
+      var HelloWorld = React.createClass({
+        render:function(){
+          return (
+            Hello,<input type="text" placeholder="请输入您的名字" />
+            It is {this.props.date.toString()}
+          )
+        }
+      })
+
+      ReactDOM.render(
+        <HelloWorld date={new Date()} />,
+        document.getElementById('example')
+      )
+
+    </script>
+  </body>
+</html>
